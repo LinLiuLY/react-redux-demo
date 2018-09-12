@@ -8,7 +8,7 @@ const NinjaList = ({ ninjas, deleteNinja }) => {
           <div>Name: {name}</div>
           <div>Age: {age}</div>
           <div>Belt: {belt}</div>
-          <button onClick={() => deleteNinja(id)} />
+          <button onClick={() => deleteNinja(id)}> delete </button>
         </div>
       ) : null
   );
