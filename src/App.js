@@ -1,47 +1,31 @@
 import React, { Component } from 'react';
-import './App.css';
-import Ninjas from './Ninjas';
-import AddNinja from './AddNinja';
+import { Todos } from './Todos';
 
 class App extends Component {
   state = {
-    ninjas: [
-      { name: 'A', age: 10, belt: 'black', id: 1 },
-      { name: 'B', age: 22, belt: 'black', id: 2 },
-      { name: 'C', age: 30, belt: 'black', id: 3 }
+    todos: [
+      {
+        id: 1,
+        content: 'buy some milk'
+      },
+      {
+        id: 2,
+        content: 'play mario kart'
+      }
     ]
   };
 
-  addNinja = ninja => {
+  deleteTodo = id => {
     this.setState({
-      ninjas: [...this.state.ninjas, ninja]
+      todos: this.state.todos.filter(todo => todo.id !== id)
     });
-  };
-
-  deleteNinja = id => {
-    this.setState({
-      ninjas: this.state.ninjas.filter(ninja => ninja.id !== id)
-    });
-  };
-
-  componentDidMount = () => {
-    console.log('componentDidMount');
-  }
-
-  componentDidUpdate = (prevProps, prevState) => {
-    console.log('prevProps', prevProps);
-    console.log('prevState', prevState);
   };
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">Hello</p>
-        <AddNinja addNinja={this.addNinja} />
-        <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja} />
+      <div>
+        <h1 className="center blue-text">Todo's</h1>
+        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
       </div>
     );
   }
