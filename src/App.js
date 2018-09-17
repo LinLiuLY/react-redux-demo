@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Todos } from './Todos';
+import AddTodoForm from './AddForm';
 
 class App extends Component {
   state = {
@@ -21,11 +22,18 @@ class App extends Component {
     });
   };
 
+  addTodo = todo => {
+    this.setState({
+      todos: [...this.state.todos, todo]
+    });
+  };
+
   render() {
     return (
       <div>
         <h1 className="center blue-text">Todo's</h1>
         <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
+        <AddTodoForm addTodo={this.addTodo} />
       </div>
     );
   }
