@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import About from './components/About';
+import Post from './components/Post';
 
 class App extends Component {
   state = {
@@ -41,6 +42,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/:post_id" component={Post} />
 
           <h1 className="center blue-text">Todo's</h1>
           <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
