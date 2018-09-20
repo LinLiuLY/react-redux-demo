@@ -29,7 +29,7 @@ class Home extends Component {
     const postContent = ({ id, title, body }) => (
       <div className="post card" key={id}>
         <div className="card-content">
-          <Link to={`/posts/${id}`}>
+          <Link to={`/${id}`}>
             <span className="card-title">{title}</span>
           </Link>
           <p>{body}</p>
