@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Pokeball from '../pokeball.png';
+import Pokeball from '../../pokeball.png';
 import { connect } from 'react-redux';
 
-class Posts extends Component {
+class LocalPosts extends Component {
   render() {
     const { posts } = this.props;
     const postContent = ({ id, title, body }) => (
       <div className="post card" key={id}>
         <img src={Pokeball} alt="Pokeball" />
         <div className="card-content">
-          <Link to={`/${id}`}>
+          <Link to={`/posts/${id}`}>
             <span className="card-title">{title}</span>
           </Link>
           <p>{body}</p>
@@ -24,14 +23,14 @@ class Posts extends Component {
         posts.map(post => postContent(post))
       ) : (
         <div className="container">
-          <h4 className="center">Home page</h4>
+          <h4 className="center">Posts is coming...</h4>
         </div>
       );
 
     return (
       <div>
         <div className="container home">
-          <h4 className="center">Home</h4>
+          <h4 className="center">Posts</h4>
           {postList}
         </div>
       </div>
@@ -44,4 +43,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Posts);
+export default connect(mapStateToProps)(LocalPosts);

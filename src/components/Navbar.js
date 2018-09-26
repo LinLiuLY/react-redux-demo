@@ -24,7 +24,7 @@ const Navbar = props => {
             <NavLink to="/todo">TodoList</NavLink>
           </li>
           <li>
-            <NavLink to="/posts">PostsUsingRedux</NavLink>
+            <NavLink to="/posts">LocalPosts</NavLink>
           </li>
         </ul>
       </div>
